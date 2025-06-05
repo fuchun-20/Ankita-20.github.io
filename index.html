@@ -1,12 +1,16 @@
-<!-- Portfolio – dark theme with custom Skills layout -->
+<!-- /////////////////////////////////////////////////////////////////
+   Ankita Mukherjee • Dark-Theme Portfolio
+   Contact form posts to Formspree (replace action URL when you get
+   your own endpoint) — works on any static host (GitHub Pages, Netlify, etc.)
+//////////////////////////////////////////////////////////////////////// -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ankita Mukherjee | Portfolio</title>
 
-  <!-- Bootstrap 5 + Icons + AOS -->
+  <!-- Bootstrap • Icons • AOS • Google Font -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
@@ -14,79 +18,61 @@
 
   <style>
     :root{
-      --clr-bg:#111;
-      --clr-surface:#1b1b1b;
-      --clr-card:#1e1e1e;
-      --clr-primary:#0d6efd;
-      --clr-accent:#0ef;
-      --clr-text:#eee;
-      --clr-muted:#bbb;
+      --bg:#111;--surface:#1b1b1b;--card:#1e1e1e;
+      --primary:#0d6efd;--accent:#0ef;--text:#eee;--muted:#bbb;
     }
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text)}
 
-    html{scroll-behavior:smooth;}
-    body{
-      font-family:'Poppins',sans-serif;
-      background:var(--clr-bg);
-      color:var(--clr-text);
-    }
+    /* ---------- NAVBAR ---------- */
+    .navbar{background:#000!important}
+    .navbar-brand,.nav-link{color:var(--text)!important}
+    .nav-link:hover{color:var(--accent)!important}
 
-    /* NAVBAR */
-    .navbar{background:#000 !important;}
-    .navbar-brand,.nav-link{color:var(--clr-text) !important;}
-    .nav-link:hover{color:var(--clr-accent) !important;}
-
-    /* HERO */
+    /* ---------- HERO ---------- */
     .hero{
-      background:linear-gradient(135deg,#000 0%,#1a1a1a 100%);
-      padding:6rem 0 4rem;
-      text-align:center;
+      background:linear-gradient(135deg,#000,#1a1a1a);
+      padding:6rem 0 4rem;text-align:center
     }
-    .hero h1{font-weight:600;}
+    .hero h1{font-weight:600}
 
-    /* BUTTONS */
-    .btn{color:var(--clr-text);border-color:var(--clr-accent);}
-    .btn:hover{background:var(--clr-accent);color:#000;}
+    /* ---------- COMMON ---------- */
+    .btn{color:var(--text);border-color:var(--accent)}
+    .btn:hover{background:var(--accent);color:#000}
+    section{padding:4rem 0}
+    .bg-light{background:var(--surface)!important}
+    h2,h5{color:var(--accent)}
+    a{color:var(--accent)}a:hover{color:#fff}
 
-    /* SECTIONS */
-    section{padding:4rem 0;}
-    .bg-light{background:var(--clr-surface) !important;}
+    /* ---------- TIMELINE ---------- */
+    .timeline::before{content:"";position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--accent)}
+    .timeline-item{position:relative;padding-left:2.5rem;margin-bottom:2rem}
+    .timeline-item::before{content:"";position:absolute;left:0;top:4px;width:14px;height:14px;border-radius:50%;background:var(--accent)}
 
-    /* HEADINGS */
-    h2,h5{color:var(--clr-accent);}
+    /* ---------- CARDS / LISTS ---------- */
+    .card{background:var(--card);color:var(--text);border:none}
+    .list-group-item{background:transparent;border:none;color:var(--text)}
 
-    /* TIMELINE */
-    .timeline::before{content:"";position:absolute;left:7px;top:0;bottom:0;width:2px;background:var(--clr-accent);}
-    .timeline-item{position:relative;padding-left:2.5rem;margin-bottom:2rem;}
-    .timeline-item::before{content:"";position:absolute;left:0;top:4px;width:14px;height:14px;border-radius:50%;background:var(--clr-accent);}
+    /* ---------- FORM ---------- */
+    .form-control,textarea{background:#222;color:var(--text);border:1px solid #555}
+    .form-control:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 .2rem rgba(0,238,255,.25)}
 
-    /* CARDS */
-    .card{background:var(--clr-card);color:var(--clr-text);border:none;}
-
-    /* LIST ITEMS */
-    .list-group-item{background:transparent;border:none;color:var(--clr-text);}
-
-    /* FORM */
-    .form-control,textarea{background:#222;color:var(--clr-text);border:1px solid #555;}
-    .form-control:focus,textarea:focus{border-color:var(--clr-accent);box-shadow:0 0 0 .2rem rgba(0,238,255,.25);}
-
-    /* FOOTER */
-    footer{background:#000;color:var(--clr-muted);text-align:center;padding:2rem 0;}
-
-    a{color:var(--clr-accent);}a:hover{color:#fff;}
+    /* ---------- FOOTER ---------- */
+    footer{background:#000;color:var(--muted);text-align:center;padding:2rem 0}
   </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80">
 
-<!-- NAVBAR -->
+<!-- ▒ NAVBAR ▒ -->
 <nav id="mainNav" class="navbar navbar-expand-lg fixed-top shadow-sm">
   <div class="container">
     <a class="navbar-brand fw-semibold" href="#home">Ankita Mukherjee</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navContent">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div id="navContent" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
@@ -98,7 +84,7 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ▒ HERO ▒ -->
 <section id="home" class="hero">
   <div class="container" data-aos="zoom-in">
     <h1 class="display-5">Hi, I’m <span class="text-primary">Ankita</span></h1>
@@ -112,32 +98,29 @@
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ▒ ABOUT ▒ -->
 <section id="about">
   <div class="container text-center">
     <h2 data-aos="fade-up">About Me</h2>
     <p data-aos="fade-up" data-aos-delay="100" style="max-width:720px;margin:0 auto;">
-      Dedicated computer-science student proficient in <strong>Python, C, MySQL, Java, HTML, CSS &amp; JavaScript</strong>, with solid grounding in DBMS and data structures. Passionate about cybersecurity and problem-solving.
+      Dedicated CS student proficient in <strong>Python, C, Java, MySQL, HTML, CSS &amp; JavaScript</strong>. Solid foundation in DBMS and data structures — passionate about cybersecurity and innovation.
     </p>
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- ▒ SKILLS ▒ -->
 <section id="skills" class="bg-light">
   <div class="container">
     <h2 class="text-center mb-5" data-aos="fade-up">Skills</h2>
     <div class="row gy-4 text-center">
-      <!-- Languages -->
       <div class="col-md-4" data-aos="fade-right">
-        <h5 class="mb-3"><i class="bi bi-translate text-primary"></i> Languages</h5>
+        <h5><i class="bi bi-translate text-primary"></i> Languages</h5>
         <span class="badge bg-secondary me-2 mb-2">Bengali</span>
         <span class="badge bg-secondary me-2 mb-2">English</span>
         <span class="badge bg-secondary me-2 mb-2">Hindi</span>
       </div>
-
-      <!-- Databases & Concepts -->
       <div class="col-md-4" data-aos="fade-up">
-        <h5 class="mb-3"><i class="bi bi-tools text-primary"></i> Databases &amp; Concepts</h5>
+        <h5><i class="bi bi-tools text-primary"></i> Databases & Concepts</h5>
         <span class="badge bg-info me-2 mb-2">MySQL</span>
         <span class="badge bg-info me-2 mb-2">DBMS</span>
         <span class="badge bg-info me-2 mb-2">DSA</span>
@@ -145,10 +128,8 @@
         <span class="badge bg-info me-2 mb-2">Deep Learning</span>
         <span class="badge bg-info me-2 mb-2">Git</span>
       </div>
-
-      <!-- Programming & Web -->
       <div class="col-md-4" data-aos="fade-left">
-        <h5 class="mb-3"><i class="bi bi-laptop-fill text-primary"></i> Programming &amp; Web</h5>
+        <h5><i class="bi bi-laptop-fill text-primary"></i> Programming & Web</h5>
         <span class="badge bg-primary me-2 mb-2">Python</span>
         <span class="badge bg-primary me-2 mb-2">C</span>
         <span class="badge bg-primary me-2 mb-2">Java</span>
@@ -160,62 +141,60 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
+<!-- ▒ EDUCATION ▒ -->
 <section id="education">
   <div class="container">
     <h2 class="text-center mb-5" data-aos="fade-up">Education</h2>
     <div class="timeline mx-auto" style="max-width:700px">
       <div class="timeline-item" data-aos="fade-up">
-        <h5>B.Tech in Computer Science &amp; Engineering</h5>
-        <p class="text-muted">University of Engineering &amp; Management, Kolkata — 2021 – Present</p>
+        <h5>B.Tech • Computer Science & Engineering</h5>
+        <p class="text-muted">University of Engineering & Management, Kolkata — 2021 – Present</p>
         <small>CGPA 8.17 / 10</small>
       </div>
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
         <h5>Higher Secondary (Science)</h5>
-        <p class="text-muted">RT Girls’ High School, Suri — 2020</p>
-        <small>82%</small>
+        <p class="text-muted">RT Girls’ High School, Suri — 2020</p><small>82 %</small>
       </div>
       <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
         <h5>Secondary Education</h5>
-        <p class="text-muted">RT Girls’ High School, Suri — 2018</p>
-        <small>75%</small>
+        <p class="text-muted">RT Girls’ High School, Suri — 2018</p><small>75 %</small>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROJECTS -->
+<!-- ▒ PROJECTS ▒ -->
 <section id="projects" class="bg-light">
   <div class="container">
     <h2 class="text-center mb-5" data-aos="fade-up">Projects</h2>
     <div class="row g-4">
       <div class="col-md-4" data-aos="flip-left">
         <div class="card h-100">
-          <img src="https://source.unsplash.com/600x400?underwater" class="card-img-top" alt="Underwater Enhancement">
+          <img src="https://source.unsplash.com/600x400?underwater" class="card-img-top" alt="Underwater enhancement">
           <div class="card-body">
             <h5 class="card-title">Underwater Image Enhancement</h5>
-            <p class="card-text small text-muted">Deep Learning · UNet</p>
-            <p class="card-text">Enhanced underwater images using UNet with MSE, SSIM &amp; PSNR metrics.</p>
+            <p class="card-text small text-muted">Deep Learning • UNet</p>
+            <p class="card-text">Improved underwater imagery using UNet and metrics (MSE, SSIM, PSNR).</p>
           </div>
         </div>
       </div>
       <div class="col-md-4" data-aos="flip-left" data-aos-delay="100">
         <div class="card h-100">
-          <img src="https://source.unsplash.com/600x400?mri" class="card-img-top" alt="Brain Tumor Detection">
+          <img src="https://source.unsplash.com/600x400?mri" class="card-img-top" alt="Brain tumor detection">
           <div class="card-body">
             <h5 class="card-title">Brain Tumor Detection</h5>
-            <p class="card-text small text-muted">Machine Learning · CNN</p>
-            <p class="card-text">Built a CNN model to classify MRI slices as healthy or tumorous.</p>
+            <p class="card-text small text-muted">Machine Learning • CNN</p>
+            <p class="card-text">CNN model classifies MRI slices as healthy or tumorous with high accuracy.</p>
           </div>
         </div>
       </div>
       <div class="col-md-4" data-aos="flip-left" data-aos-delay="200">
         <div class="card h-100">
-          <img src="https://source.unsplash.com/600x400?voting" class="card-img-top" alt="Online Voting">
+          <img src="https://source.unsplash.com/600x400?voting" class="card-img-top" alt="Online voting">
           <div class="card-body">
             <h5 class="card-title">Online Voting System</h5>
-            <p class="card-text small text-muted">PHP · MySQL · Bootstrap</p>
-            <p class="card-text">Secure web platform allowing authenticated users to vote and view results online.</p>
+            <p class="card-text small text-muted">PHP • MySQL • Bootstrap </p>
+            <p class="card-text">Role-based secure voting platform with real-time tallying and audit trail.</p>
           </div>
         </div>
       </div>
@@ -223,77 +202,77 @@
   </div>
 </section>
 
-<!-- ACHIEVEMENTS & CERTS -->
+<!-- ▒ ACHIEVEMENTS ▒ -->
 <section id="achievements">
   <div class="container">
-    <h2 class="text-center mb-5" data-aos="fade-up">Achievements &amp; Certifications</h2>
+    <h2 class="text-center mb-5" data-aos="fade-up">Achievements & Certifications</h2>
     <div class="row gy-4">
       <div class="col-md-4" data-aos="fade-right">
-        <h5 class="mb-3"><i class="bi bi-award text-primary"></i> Achievements</h5>
+        <h5><i class="bi bi-award text-primary"></i> Achievements</h5>
         <ul class="list-group">
           <li class="list-group-item">NPTEL Motivated Learner</li>
           <li class="list-group-item">NPTEL Discipline Star</li>
         </ul>
       </div>
       <div class="col-md-4" data-aos="fade-up">
-        <h5 class="mb-3"><i class="bi bi-patch-check text-primary"></i> NPTEL Certifications</h5>
+        <h5><i class="bi bi-patch-check text-primary"></i> NPTEL Certificates</h5>
         <ul class="list-group">
-          <li class="list-group-item">Cloud Computing Design &amp; Analysis</li>
+          <li class="list-group-item">Cloud Computing Design & Analysis</li>
           <li class="list-group-item">Programming in Java</li>
           <li class="list-group-item">Problem Solving in C</li>
           <li class="list-group-item">Data Science for Engineers</li>
           <li class="list-group-item">Joy of Computing using Python</li>
-          <li class="list-group-item">Enhancing Soft Skills &amp; Personality</li>
-          <li class="list-group-item">Technical Communication for Engineers</li>
+          <li class="list-group-item">Enhancing Soft Skills & Personality</li>
+          <li class="list-group-item">Technical Communication</li>
         </ul>
       </div>
       <div class="col-md-4" data-aos="fade-left">
-        <h5 class="mb-3"><i class="bi bi-journal-code text-primary"></i> Other Certifications</h5>
+        <h5><i class="bi bi-journal-code text-primary"></i> Other Certificates</h5>
         <ul class="list-group">
           <li class="list-group-item">IBM Data Analyst</li>
-          <li class="list-group-item">IBM Cybersecurity Analyst (Coursera)</li>
+          <li class="list-group-item">IBM Cybersecurity Analyst</li>
           <li class="list-group-item">IBM Generative AI Micro-Internship</li>
-          <li class="list-group-item">CyberSecurity Fundamentals of Malware Analysis (CSI)</li>
+          <li class="list-group-item">CSI Malware Analysis Fundamentals</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- ▒ CONTACT ▒ -->
 <section id="contact" class="bg-light">
   <div class="container">
     <h2 class="text-center mb-5" data-aos="fade-up">Contact Me</h2>
     <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
       <div class="col-lg-8">
-        <form class="p-4 p-md-5 border rounded-3 bg-dark shadow">
+        <!-- Replace action URL with your own Formspree endpoint -->
+        <form action="https://formspree.io/f/xvgrgdep" method="POST"
+              class="p-4 p-md-5 border rounded-3 bg-dark shadow"
+              onsubmit="this.querySelector('button').innerText='Sending…';this.querySelector('button').disabled=true;">
+          <input type="hidden" name="_captcha" value="false">
           <div class="row g-3">
             <div class="col-md-6">
               <label class="form-label">Name</label>
-              <input type="text" class="form-control" placeholder="Your name">
+              <input name="name" type="text" class="form-control" required>
             </div>
             <div class="col-md-6">
               <label class="form-label">Email</label>
-              <input type="email" class="form-control" placeholder="you@example.com">
+              <input name="email" type="email" class="form-control" required>
             </div>
             <div class="col-12">
               <label class="form-label">Message</label>
-              <textarea class="form-control" rows="6" placeholder="Write your message..."></textarea>
+              <textarea name="message" rows="6" class="form-control" required></textarea>
             </div>
           </div>
-          <button class="btn btn-outline-primary mt-4 w-100" type="submit">Send Message</button>
+          <button type="submit" class="btn btn-outline-primary mt-4 w-100">Send Message</button>
         </form>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="container">
-    <small>© 2025 Ankita Mukherjee. All rights reserved.</small>
-  </div>
-</footer>
+<!-- ▒ FOOTER ▒ -->
+<footer><div class="container"><small>© 2025 Ankita Mukherjee. All rights reserved.</small></div></footer>
 
 <!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
